@@ -9,13 +9,13 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new
+    @pictures = Picture.new
   end
 
   def create
     # render text: "Received POST request to '/pictures' with the data URL: #{params}"
-    @picture = Picture.new(picture_params)
-    if @picture.save
+    @pictures = Picture.new(picture_params)
+    if @pictures.save
       # if the picture gets saved, generate a get request to "/pictures" (the index)
       redirect_to "/pictures"
     else
@@ -26,5 +26,18 @@ class PicturesController < ApplicationController
 
   def picture_params
     { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
+  end
+
+  def edit
+    @pictures = Picture.find(params[:id])
+  end
+
+  def update
+    @pictures = Picture.find(params[:id])
+    if @pictures.update_attributes(picture_params)
+      redirect_to "/pictures/#{@pictures.id}"
+    else
+      render :edit
+    end
   end
 end
