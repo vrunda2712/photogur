@@ -2,6 +2,7 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+    @month_old_pictures = Picture.created_before(1.month.ago)
   end
 
   def show
