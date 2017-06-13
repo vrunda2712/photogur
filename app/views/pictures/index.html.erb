@@ -9,9 +9,30 @@
 <% end %>
 
 <h2>One Month Old Pictures</h2>
-<p><%= @month_old_pictures.count%></p>
+<p><%= Picture.month_old_pictures.count%></p>
 <ul>
-  <% @month_old_pictures.each do |picture| %>
+  <% Picture.month_old_pictures.each do |picture| %>
     <li><%= picture.title%></li>
   <% end %>
 </ul>
+
+<h2>Year:</h2>
+
+<h3>2017</h3>
+  <% Picture.created_in_year_2017.each do |picture| %>
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  <% end %>
+
+<h3>2016</h3>
+  <% Picture.created_in_year_2016.each do |picture| %>
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  <% end %>
+
+
+<h3>2015</h3>
+  <% Picture.created_in_year_2015.each do |picture| %>
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  <% end %>
