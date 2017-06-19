@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_url
+      flash[:notice] = 'Account Created Successfully !'
+      redirect_to '/pictures'
     else
+      flash.now[:error] = 'Sorry, Try Again !'
       render :new
     end
   end

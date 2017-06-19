@@ -6,9 +6,18 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+  <body>
 
-</body>
+    <% if flash.any? %>
+      <% flash.each do |key, value| %>
+        <p class="<%= key %>">
+          <%= value %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>

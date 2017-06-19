@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  post 'users' => 'users#create'
-  get 'users/new' => 'users#new'
+  get 'sessions/new'
 
-  # resource :users, only: %i(new create)
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  # post 'users/create' => 'users#create'
+  # get 'users/new' => 'users#new'
+
+  resource :users, only: %i(new create)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pictures#index'
+  get 'home/show'
+  root 'home#show'
 
   get 'pictures' => 'pictures#index'
 
