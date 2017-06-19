@@ -17,4 +17,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to pictures_url, notice: "Logged Out!"
   end
+  
 end
