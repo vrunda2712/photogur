@@ -4,17 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = user.new(user_params)
+    @user = User.new(user_params)
 
     if @user.save
-      redirect_to '/pictures'
+      redirect_to root_url
     else
       render :new
     end
   end
 
   def user_params
-    { email: params[:user][:email], password: params[:user][:password], password_confirmation: [:user][:password_confirmation]}
+    { email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation]}
   end
 
 end
