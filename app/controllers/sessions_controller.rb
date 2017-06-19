@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
     if u && u.authenticate(params[:session][:password])
       flash[:notice] = 'Successfully Logged in !'
+      redirect_to '/pictures'
     else
       flash.now[:alert] = 'Try Again !'
       render :new
@@ -17,5 +18,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to pictures_url, notice: "Logged Out!"
   end
-  
+
 end
