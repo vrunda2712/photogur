@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
+  # get 'sessions/new'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
+  resource :sessions, only: %i(new create destroy)
   # post 'users/create' => 'users#create'
   # get 'users/new' => 'users#new'
 
