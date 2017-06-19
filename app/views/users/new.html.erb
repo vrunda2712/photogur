@@ -1,2 +1,34 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Create an Account</h1>
+<%= link_to('Back to Pictures', '/pictures') %>
+
+<% if @user.errors.any? %>
+  <div>
+    <ul>
+      <% @user.errors.full_messages.each do |full_msg| %>
+        <li><%= full_msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for (@user) do |f| %>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.email_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create Account' %><br>
+  </P>
+
+<% end %>
