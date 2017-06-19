@@ -5,13 +5,14 @@
 <% @pictures.each do |picture| %>
   <hr>
   <h2>Picture : <%= picture.id %></h2>
-  <p>Title: <%= picture.title %>, Artist: <%= picture.artist %></p>
+  <p>Title: <%= picture.title %></p>
+  <p>Artist: <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
   <!-- <img src="<%= picture.url %>" alt="<%= picture.title %>"> -->
 <% end %>
 <hr>
 
-<h2>One Month Old Pictures</h2>
+<!-- <h2>One Month Old Pictures</h2>
 <p><%= Picture.month_old_pictures.count%></p>
 <ul>
   <% Picture.month_old_pictures.each do |picture| %>
@@ -38,4 +39,4 @@
   <% Picture.created_in_year_2015.each do |picture| %>
     <p><%= picture.title %>, <%= picture.artist %></p>
     <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-  <% end %>
+  <% end %> -->
