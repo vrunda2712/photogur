@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
     @most_recent_pictures = Picture.most_recent_five
     @created_in_year_2016 = Picture.created_before(Date.new(2017)).created_after(Date.new(2016))
     @created_in_year_2015 = Picture.created_before(Date.new(2016)).created_after(Date.new(2015))
-    @created_in_year_2014 = Picture.created_before(Date.new(2015)).created_after(Date.new(2014)) 
+    @created_in_year_2014 = Picture.created_before(Date.new(2015)).created_after(Date.new(2014))
 
 
   end
@@ -32,7 +32,8 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
+    # { title: params[:picture][:title], artist: params[:picture][:artist], url: params[:picture][:url] }
+    params.require(:picture).permit(:title, :artist, :url)
   end
 
   def edit
