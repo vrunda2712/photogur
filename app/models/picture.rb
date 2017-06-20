@@ -16,9 +16,12 @@ class Picture < ApplicationRecord
     Picture.where("created_at < ?", time)
   end
 
-  # scope :month_old_pictures, -> {created_before(1.month.ago) }
-  # scope :created_in_year_2017, -> {created_in_year(Date.new(2017)) }
-  # scope :created_in_year_2016, -> {created_in_year(Date.new(2016)) }
-  # scope :created_in_year_2015, -> {created_in_year(Date.new(2015)) }
+  def self.created_after(time)
+    Picture.where("created_at > ?", time)
+  end
+
+  def self.pictures_created_in_year(year)
+    Picture.where("created_at < ?", year)
+  end
 
 end

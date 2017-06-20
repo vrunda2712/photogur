@@ -15,13 +15,28 @@
 <h1>Most recent Pictures</h1>
   <ul>
     <% @most_recent_pictures.each do |picture| %>
-      <li><%= link_to picture.title, picture.url %></li>
+      <!-- <li><%= link_to picture.title, picture.url %></li> -->
+      <li><%= link_to picture.title, "/pictures/#{picture.id}" %></li>
     <% end %>
   </ul>
 
-<h1>From last month</h1>
+<h1>From 2016</h1>
   <ul>
-    <% @month_old_pictures.each do |picture| %>
-      <li><%= link_to picture.title, picture.url %></li>
+    <% @created_in_year_2016.each do |picture| %>
+    <li><%= link_to picture.title, "/pictures/#{picture.id}" %></li>
     <% end %>
   </ul>
+
+  <h1>From 2015</h1>
+    <ul>
+      <% @created_in_year_2015.each do |picture| %>
+      <li><%= link_to picture.title, "/pictures/#{picture.id}" %></li>
+      <% end %>
+    </ul>
+
+    <h1>From 2014</h1>
+      <ul>
+        <% @created_in_year_2014.each do |picture| %>
+        <li><%= link_to picture.title, "/pictures/#{picture.id}" %></li>
+        <% end %>
+      </ul>
