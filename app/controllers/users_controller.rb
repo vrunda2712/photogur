@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = 'Account Created Successfully !'
+      flash[:alert] = 'Account Created Successfully !'
       redirect_to '/pictures'
     else
       flash.now[:error] = 'Sorry, Try Again !'
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def user_params
     { email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation]}
+    # params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end
