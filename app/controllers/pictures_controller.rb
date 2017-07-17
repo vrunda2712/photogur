@@ -1,7 +1,7 @@
 
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.order(created_at: :desc)
     @picture = Picture.new
     @month_old_pictures = Picture.created_before(1.month.ago)
     @most_recent_pictures = Picture.most_recent_five
