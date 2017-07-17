@@ -7,7 +7,10 @@
   <% end %>
 </div>
 
-<%= link_to("Add New Picture","/pictures/new")%>
+<!-- <%= link_to("Add New Picture","/pictures/new")%> -->
+<hr>
+<h2>Add New Picture</h2>
+<%= render 'form' %>
 
 <% @pictures.each do |picture| %>
   <hr>
