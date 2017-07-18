@@ -13,12 +13,7 @@
 <%= render 'form' %>
 
 <% @pictures.each do |picture| %>
-  <hr>
-  <h2>Picture : <%= picture.id %></h2>
-  <p>Title: <%= picture.title %></p>
-  <p>Artist: <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-  <!-- <img src="<%= picture.url %>" alt="<%= picture.title %>"> -->
+  <%= render 'pictures/picture', picture: picture %>
 <% end %>
 <hr>
 

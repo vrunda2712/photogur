@@ -1,0 +1,11 @@
+<hr>
+<div class = "card">
+  <h2>Picture : <%= picture.id %></h2>
+  <p>Title: <%= picture.title %></p>
+  <p>Artist: <%= picture.artist %></p>
+  <div class="image-wrap">
+    <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+  </div>
+
+  <a href="javascript:void(0)" class="active-state-trigger button button-primary">Add to Deck</a>
+</div>
