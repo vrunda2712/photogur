@@ -21,6 +21,19 @@ class PicturesController < ApplicationController
   def create
     # render text: "Received POST request to '/pictures' with the data URL: #{params}"
     @pictures = Picture.new(picture_params)
+    if request.xhr?
+      respond_to do |format|
+        format.html do
+          if @pictures.save
+            redirect_to "/pictures"
+          else
+            render :new
+          end
+        end
+        format.js
+      end
+    end
+
     if @pictures.save
       # if the picture gets saved, generate a get request to "/pictures" (the index)
       redirect_to "/pictures"
